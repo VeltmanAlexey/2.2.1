@@ -16,13 +16,13 @@ public class MainApp {
       UserService userService = context.getBean(UserService.class);
 
       User user1 = new User("Alexey", "Veltman", "alexejvaltman317@mail.ru");
-      Car car1 = new Car("lhjq", 21611);
+      Car car1 = new Car("lhjqqqr", 21611225);
 
       user1.setCar(car1);
       car1.setUser(user1);
 
       User user2 = new User("Kristina", "Egorova", "egorova2@mail.ru");
-      Car car2 = new Car("fhjq", 64611);
+      Car car2 = new Car("fhjqqqr", 64611225);
 
       user2.setCar(car2);
       car2.setUser(user2);
@@ -41,10 +41,10 @@ public class MainApp {
          System.out.println();
       }
 
-      User userByCar1 = userService.userByModelAndSeries("lhjq", 21611);
+      Object userByCar1 = userService.userByModelAndSeries("lhjqqqr", 21611225);
       System.out.println(userByCar1);
 
-      User userByCar2 = userService.userByModelAndSeries("fhjq", 64611);
+      Object userByCar2 = userService.userByModelAndSeries("fhjqqqr", 64611225);
       System.out.println(userByCar2);
 
 

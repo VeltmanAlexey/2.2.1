@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;
-import java.sql.SQLException;
-import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -32,11 +30,11 @@ public class UserDaoImp implements UserDao {
    @Override
    public User userByModelAndSeries(String model, int series) {
 
-      return (User) sessionFactory.getCurrentSession().createQuery("from User where" +
+      Query<User> query = sessionFactory.getCurrentSession().createQuery("from User where" +
               " car.model =: model  and car.series =: series")
               .setParameter("model", model)
-              .setParameter("series", series)
-              .getSingleResult();
+              .setParameter("series", series);
+      return query.getSingleResult();
    }
 
 }
